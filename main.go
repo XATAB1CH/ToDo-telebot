@@ -85,5 +85,13 @@ func main() {
 		return err
 	})
 
+	bot.Handle("/telling", func(c telebot.Context) error {
+		tell := "kuu"
+		response := fmt.Sprintf("Моё сообщение: %s", tell)
+
+		_, err := bot.Send(c.Chat(), response, &telebot.SendOptions{})
+		return err
+	})
+
 	bot.Start()
 }
